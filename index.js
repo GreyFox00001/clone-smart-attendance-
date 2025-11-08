@@ -3,8 +3,8 @@ dotenv.config();
 const express = require('express')
 const app = express()
 const path = require('path')
-const details = require('../routes/login-signup.js');
-const dashboard = require('../routes/dashboard.js'); // Import dashboard routes
+const details = require('./routes/login-signup.js');
+const dashboard = require('./routes/dashboard.js'); // Import dashboard routes
 const session = require('express-session'); // For session management
 
 app.set('view engine', 'ejs')
@@ -43,7 +43,7 @@ app.get('/logout', (req, res) => {
 });
 
 
-const connectDB = require('../db/user.js');
+const connectDB = require('./db/user.js');
 connectDB().catch((err) => {
     console.log("MONGO db connection failed !!! ", err);
 })
